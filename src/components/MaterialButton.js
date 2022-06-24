@@ -15,16 +15,16 @@ import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
 
 function MaterialButton() {
 
-  const [formats, setFormats] = useState([])
+  const [formats, setFormats] = useState<"string" | "null" >(null)
 
 
 
-  const onChangeFormats= (event) => {
+  const onChangeFormats= () => {
 
-    setFormats([...formats,event.target.value])
+    setFormats()
   }
 
-  console.log(formats)
+  
   return (
     <Stack spacing={4}>
       <Stack spacing={2} direction="row">
@@ -103,7 +103,7 @@ function MaterialButton() {
 
       <Stack display="block" spacing={2} direction="row">
         <Button variant="contained" size="small" disableRipple disableElevation>
-          {" "}
+          
           small
         </Button>
         <Button
@@ -112,11 +112,11 @@ function MaterialButton() {
           disableRipple
           disableElevation
         >
-          {" "}
+         
           medium
         </Button>
         <Button variant="contained" size="large" disableRipple disableElevation>
-          {" "}
+         
           large
         </Button>
       </Stack>
@@ -165,7 +165,7 @@ function MaterialButton() {
       </Stack>
 
       <Stack direction="row">
-        <ToggleButtonGroup aria-label="toggle formatting" exclusive  size="medium" color="info" orientation="vertical" value={formats} onChange={onChangeFormats}>
+        <ToggleButtonGroup aria-label="toggle formatting"  exclusive  size="medium" color="info" orientation="vertical" value={formats} onChange={onChangeFormats}>
           <ToggleButton value="bold"  aria-label="bold">
           
             <FormatBoldIcon />
